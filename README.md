@@ -28,3 +28,5 @@ The application is built using the Model-View-Controller (MVC) architectural pat
 - **HTTP Package:** Utilized for making API calls to fetch random quotes from an external source.
 - **JSON:** Used for storing and retrieving quotes data, allowing for easy updates and management of the quotes collection.
 - **MVC Architecture:** Ensures that the app's code is clean, organized, and maintainable by separating the data, user interface, and control logic.
+
+## I'm also sharing you the application screenshots and ui of Quotes App 
