@@ -30,3 +30,17 @@ The application is built using the Model-View-Controller (MVC) architectural pat
 - **MVC Architecture:** Ensures that the app's code is clean, organized, and maintainable by separating the data, user interface, and control logic.
 
 ## I'm also sharing you the application screenshots and ui of Quotes App 
+<img src="" alt="1" style="width: 200px; height: 450px;">
+<img src="" alt="2" style="width: 200px; height: 450px;">
+<img src="" alt="3" style="width: 200px; height: 450px;">
+<img src="" alt="4" style="width: 200px; height: 450px;">
+<img src="" alt="5" style="width: 200px; height: 450px;">
+<img src="" alt="6" style="width: 200px; height: 450px;">
+<img src="" alt="7" style="width: 200px; height: 450px;">
+<img src="" alt="8" style="width: 200px; height: 450px;">
+<img src="" alt="9" style="width: 200px; height: 450px;">
+<img src="" alt="10" style="width: 200px; height: 450px;">
+<img src="" alt="11" style="width: 200px; height: 450px;">
+<img src="" alt="12" style="width: 200px; height: 450px;">
+<img src="" alt="13" style="width: 200px; height: 450px;">
+<img src="" alt="14" style="width: 200px; height: 450px;">
