@@ -3,7 +3,6 @@ import 'package:http/http.dart' as http;
 
 import '../modal/q_model.dart';
 
-
 class RandomQuoteController extends GetxController {
   List<RandomQuote> random = [];
   int cIndex = 0;
@@ -16,8 +15,7 @@ class RandomQuoteController extends GetxController {
   }
 
   void getApiData() async {
-    var quoteapi =
-    await http.get(Uri.parse("w"));
+    var quoteapi = await http.get(Uri.parse("w"));
     if (quoteapi.statusCode == 200) {
       random = randomQuoteFromJson(quoteapi.body);
       if (random.isNotEmpty) {
@@ -30,5 +28,4 @@ class RandomQuoteController extends GetxController {
       print("Failed to fetch data: ${quoteapi.statusCode}");
     }
   }
-
 }

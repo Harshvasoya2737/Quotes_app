@@ -14,7 +14,8 @@ class FavoritePageController extends GetxController {
     DbHelper dbHelper = DbHelper();
     await dbHelper.initDb();
     List<Map<String, dynamic>> quotesData = await dbHelper.getData();
-    favoriteQuotes.assignAll(quotesData.map((quote) => quote['content'] as String));
+    favoriteQuotes
+        .assignAll(quotesData.map((quote) => quote['content'] as String));
   }
 
   Future<void> removeFromFavorites(String quote) async {

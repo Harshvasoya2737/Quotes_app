@@ -22,18 +22,18 @@ class _QuoteHomeState extends State<QuoteHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF3F4F6),
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         elevation: 0,
-        backgroundColor: Color(0xFF1F2937),
         title: Text(
           "InspireMe",
-          style: GoogleFonts.lobster(color: Colors.white, fontSize: 28),
+          style: GoogleFonts.lobster(color: Colors.black, fontSize: 28),
         ),
         centerTitle: true,
         leading: IconButton(
           onPressed: () {},
-          icon: Icon(Icons.menu, color: Colors.white),
+          icon: Icon(Icons.menu),
         ),
         actions: [
           IconButton(
@@ -44,144 +44,162 @@ class _QuoteHomeState extends State<QuoteHome> {
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Random Quote",
-                style: GoogleFonts.poppins(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF1F2937)),
-              ),
-              SizedBox(height: 10),
-              GestureDetector(
-                onTap: () {
-                  randomQuoteController.getApiData();
-                },
-                child: Container(
-                  clipBehavior: Clip.antiAlias,
-                  height: 250,
-                  width: double.infinity,
-                  padding: EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    gradient: LinearGradient(
-                      colors: [Color(0xFFEDE574), Color(0xFFE1F5C4)],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black12,
-                        spreadRadius: 2,
-                        blurRadius: 10,
-                        offset: Offset(0, 3),
-                      ),
-                    ],
+      body: Stack(
+        children: [
+          Image.network(
+            "https://img.freepik.com/free-photo/2d-graphic-wallpaper-with-colorful-grainy-gradients_23-2151001558.jpg",
+            width: double.infinity,
+            height: double.infinity,
+            fit: BoxFit.cover,
+          ),
+          SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 100),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Random Quote",
+                    style: GoogleFonts.poppins(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF1F2937)),
                   ),
-                  child: Obx(() => Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              randomQuoteController.quote.value,
-                              style: GoogleFonts.poppins(
-                                  fontSize: 18,
-                                  fontStyle: FontStyle.italic,
-                                  color: Color(0xFF1F2937)),
-                              textAlign: TextAlign.center,
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              "- ${randomQuoteController.author.value}",
-                              style: GoogleFonts.poppins(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF1F2937)),
-                              textAlign: TextAlign.right,
+                  SizedBox(height: 10),
+                  GestureDetector(
+                    onTap: () {
+                      randomQuoteController.getApiData();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        clipBehavior: Clip.antiAlias,
+                        height: 250,
+                        width: double.infinity,
+                        padding: EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          gradient: LinearGradient(
+                            colors: [Color(0xFFEDE574), Color(0xFFE1F5C4)],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              spreadRadius: 2,
+                              blurRadius: 10,
+                              offset: Offset(0, 3),
                             ),
                           ],
                         ),
-                      )),
-                ),
-              ),
-              SizedBox(height: 20),
-              Text(
-                "Categories",
-                style: GoogleFonts.poppins(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF1F2937)),
-              ),
-              SizedBox(height: 10),
-              Obx(
-                () => GridView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    childAspectRatio: 100 / 50,
-                    crossAxisCount: 1,
-                  ),
-                  itemCount: homeController.allQuote.value.length,
-                  itemBuilder: (context, index) {
-                    if (index < homeController.bgImages.length) {
-                      return GestureDetector(
-                        onTap: () {
-                          secondPageController.sel_index.value = index;
-                          secondPageController.currentCategory.value =
-                              homeController.categories[
-                                  secondPageController.sel_index.value];
-                          homeController.goToSecondPage();
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black12,
-                                spreadRadius: 2,
-                                blurRadius: 10,
-                                offset: Offset(0, 3),
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                homeController.bgImages[index],
-                                height: 150,
-                              ),
-                              Center(
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 10, vertical: 5),
-                                  color: Colors.black54,
-                                  child: Text(
-                                    homeController.categories[index],
+                        child: Obx(() => Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    randomQuoteController.quote.value,
                                     style: GoogleFonts.poppins(
-                                        color: Colors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600),
+                                        fontSize: 18,
+                                        fontStyle: FontStyle.italic,
+                                        color: Color(0xFF1F2937)),
+                                    textAlign: TextAlign.center,
                                   ),
+                                  SizedBox(height: 10),
+                                  Text(
+                                    "- ${randomQuoteController.author.value}",
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Color(0xFF1F2937)),
+                                    textAlign: TextAlign.right,
+                                  ),
+                                ],
+                              ),
+                            )),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Categories",
+                      style: GoogleFonts.poppins(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white),
+                    ),
+                  ),
+                  Obx(
+                    () => Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: GridView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 10,
+                          childAspectRatio: 100 / 50,
+                          crossAxisCount: 1,
+                        ),
+                        itemCount: homeController.allQuote.value.length,
+                        itemBuilder: (context, index) {
+                          if (index < homeController.bgImages.length) {
+                            return GestureDetector(
+                              onTap: () {
+                                secondPageController.sel_index.value = index;
+                                secondPageController.currentCategory.value =
+                                    homeController.categories[
+                                        secondPageController.sel_index.value];
+                                homeController.goToSecondPage();
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black45,
+                                      spreadRadius: 2,
+                                      blurRadius: 10,
+                                      offset: Offset(0, 3),
+                                    ),
+                                  ],
+                                ),
+                                child: Column(
+                                  children: [
+                                    Image.asset(
+                                      homeController.bgImages[index],
+                                      height: 150,
+                                    ),
+                                    Center(
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 10, vertical: 5),
+                                        color: Colors.black54,
+                                        child: Text(
+                                          homeController.categories[index],
+                                          style: GoogleFonts.poppins(
+                                              color: Colors.white,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                      );
-                    }
-                  },
-                ),
+                            );
+                          }
+                        },
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

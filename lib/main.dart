@@ -1,6 +1,3 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:quotes_app_db_miner/view/home_screen.dart';
@@ -22,7 +19,6 @@ class MyApp extends StatelessWidget {
         'HomePage': (context) => const QuoteHome(),
         '/': (context) => const SplashScreen(),
       },
-
     );
   }
 }

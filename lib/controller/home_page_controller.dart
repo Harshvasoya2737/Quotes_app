@@ -6,7 +6,6 @@ import '../view/favorite_page.dart';
 import '../view/random_quote.dart';
 import '../view/second_page.dart';
 
-
 class HomeController extends GetxController {
   RxList<QuoteModel> allQuote = <QuoteModel>[].obs;
   List<String> categories = [];
@@ -123,8 +122,8 @@ class HomeController extends GetxController {
   void goToFavoritePage() {
     Get.to(() => FavoritePage());
   }
+
   void goToRandomQuotePage() {
     Get.to(() => RandomQuotePage());
   }
-
 }

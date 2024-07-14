@@ -1,12 +1,10 @@
-// To parse this JSON data, do
-//
-//     final randomQuote = randomQuoteFromJson(jsonString);
-
 import 'dart:convert';
 
-List<RandomQuote> randomQuoteFromJson(String str) => List<RandomQuote>.from(json.decode(str).map((x) => RandomQuote.fromJson(x)));
+List<RandomQuote> randomQuoteFromJson(String str) => List<RandomQuote>.from(
+    json.decode(str).map((x) => RandomQuote.fromJson(x)));
 
-String randomQuoteToJson(List<RandomQuote> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String randomQuoteToJson(List<RandomQuote> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class RandomQuote {
   String? id;
@@ -30,24 +28,32 @@ class RandomQuote {
   });
 
   factory RandomQuote.fromJson(Map<String, dynamic> json) => RandomQuote(
-    id: json["_id"],
-    content: json["content"],
-    author: json["author"],
-    tags: json["tags"] == null ? [] : List<String>.from(json["tags"]!.map((x) => x)),
-    authorSlug: json["authorSlug"],
-    length: json["length"],
-    dateAdded: json["dateAdded"] == null ? null : DateTime.parse(json["dateAdded"]),
-    dateModified: json["dateModified"] == null ? null : DateTime.parse(json["dateModified"]),
-  );
+        id: json["_id"],
+        content: json["content"],
+        author: json["author"],
+        tags: json["tags"] == null
+            ? []
+            : List<String>.from(json["tags"]!.map((x) => x)),
+        authorSlug: json["authorSlug"],
+        length: json["length"],
+        dateAdded: json["dateAdded"] == null
+            ? null
+            : DateTime.parse(json["dateAdded"]),
+        dateModified: json["dateModified"] == null
+            ? null
+            : DateTime.parse(json["dateModified"]),
+      );
 
   Map<String, dynamic> toJson() => {
-    "_id": id,
-    "content": content,
-    "author": author,
-    "tags": tags == null ? [] : List<dynamic>.from(tags!.map((x) => x)),
-    "authorSlug": authorSlug,
-    "length": length,
-    "dateAdded": "${dateAdded!.year.toString().padLeft(4, '0')}-${dateAdded!.month.toString().padLeft(2, '0')}-${dateAdded!.day.toString().padLeft(2, '0')}",
-    "dateModified": "${dateModified!.year.toString().padLeft(4, '0')}-${dateModified!.month.toString().padLeft(2, '0')}-${dateModified!.day.toString().padLeft(2, '0')}",
-  };
+        "_id": id,
+        "content": content,
+        "author": author,
+        "tags": tags == null ? [] : List<dynamic>.from(tags!.map((x) => x)),
+        "authorSlug": authorSlug,
+        "length": length,
+        "dateAdded":
+            "${dateAdded!.year.toString().padLeft(4, '0')}-${dateAdded!.month.toString().padLeft(2, '0')}-${dateAdded!.day.toString().padLeft(2, '0')}",
+        "dateModified":
+            "${dateModified!.year.toString().padLeft(4, '0')}-${dateModified!.month.toString().padLeft(2, '0')}-${dateModified!.day.toString().padLeft(2, '0')}",
+      };
 }

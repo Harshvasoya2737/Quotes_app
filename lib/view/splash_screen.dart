@@ -14,7 +14,8 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(Duration(seconds: 3), () {
-      Navigator.of(context).pushNamedAndRemoveUntil("HomePage", (route) => false);
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil("HomePage", (route) => false);
     });
   }
 
@@ -32,10 +33,10 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.network("https://play-lh.googleusercontent.com/0r_B7wYROLRZw6ok9uZu95_sxln9EEq3o9nZXYqiEklDnjlW9XN-wlNItSDrY78E9To", width: 300),
+            Image.asset("assets/quotes_logo-removebg-preview.png", width: 300),
             SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.only(right: 50,left: 50),
+              padding: const EdgeInsets.only(right: 150, left: 150),
               child: LinearProgressIndicator(),
             ),
             SizedBox(height: 20),
@@ -43,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "Welcome to Quote App",
+                  "Quote App",
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
