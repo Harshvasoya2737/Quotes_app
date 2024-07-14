@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: Quote_Home(),
       initialRoute: '/',
       routes: {
         'HomePage': (context) => const QuoteHome(),
