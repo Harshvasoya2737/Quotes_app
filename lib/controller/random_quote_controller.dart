@@ -15,7 +15,7 @@ class RandomQuoteController extends GetxController {
   }
 
   void getApiData() async {
-    var quoteapi = await http.get(Uri.parse("w"));
+    var quoteapi = await http.get(Uri.parse("https://api.quotable.io/quotes/random"));
     if (quoteapi.statusCode == 200) {
       random = randomQuoteFromJson(quoteapi.body);
       if (random.isNotEmpty) {
