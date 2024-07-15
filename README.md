@@ -29,7 +29,7 @@ The application is built using the Model-View-Controller (MVC) architectural pat
 - **JSON:** Used for storing and retrieving quotes data, allowing for easy updates and management of the quotes collection.
 - **MVC Architecture:** Ensures that the app's code is clean, organized, and maintainable by separating the data, user interface, and control logic.
 
-## I'm also sharing you the application screenshots and ui of Quotes App 
+## I'm sharing you the application screenshots and ui of Quotes App 
 <img src="https://github.com/user-attachments/assets/749841ba-a8f9-4fe5-adc1-29bbe4d9a2ca" alt="1" style="width: 200px; height: 450px;">
 <img src="https://github.com/user-attachments/assets/6bf68d8e-3052-4b31-93dd-0053d428383e" alt="2" style="width: 200px; height: 450px;">
 <img src="https://github.com/user-attachments/assets/19f59589-1211-4629-8768-3ad8a02060c8" alt="3" style="width: 200px; height: 450px;">
@@ -44,3 +44,8 @@ The application is built using the Model-View-Controller (MVC) architectural pat
 <img src="https://github.com/user-attachments/assets/5c4e9f41-738d-45be-9a5a-9e3f56f459c6" alt="12" style="width: 200px; height: 450px;">
 <img src="https://github.com/user-attachments/assets/ab0f8973-1a02-4a50-9e63-f8b4c3abf1fe" alt="13" style="width: 200px; height: 450px;">
 <img src="https://github.com/user-attachments/assets/11fdfdc6-2ebc-4479-b04a-b710729bbbf1" alt="14" style="width: 200px; height: 450px;">
+
+## I'm also sharing you the screenrecording link of Quotes App
+**Link of Screenrecording** => https://drive.google.com/file/d/1nx_5mdGGtcd9AM0s2Xc-ohmmICQw_1nn/view?usp=sharing
+
+## Thank You Keep Supporting
